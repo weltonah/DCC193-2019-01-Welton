@@ -1,6 +1,6 @@
 <%@page pageEncoding="utf-8" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE HTML >
 <html>
 <head>
@@ -35,7 +35,8 @@
                 <c:forEach items="${listaMenbro}" var="item" varStatus="status">
                     <tr>
                         <th scope="row">
-                            <a href="DeleteMenbro?idSede=${idSede}&idMenbro=${item.getId()}" class="btn btn-primary" role="button">Delete</a>
+                            <a href="DeleteMenbro?idSede=${idSede}&idMenbro=${item.getId()}" class="btn btn-primary"
+                               role="button">Delete</a>
                         </th>
                         <th>
                             <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -49,7 +50,8 @@
                         <th>${item.getDataEntradaStr()}</th>
                         <th>${item.getDataSaidaStr()}</th>
                     </tr>
-                    <div class="modal fade" id="AlterarModal${item.getId()}" tabindex="-1" role="dialog" aria-labelledby="AlterarModal${item.getId()}Label"
+                    <div class="modal fade" id="AlterarModal${item.getId()}" tabindex="-1" role="dialog"
+                         aria-labelledby="AlterarModal${item.getId()}Label"
                          aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -63,33 +65,41 @@
                                     <div class="modal-body">
                                         <div class="form-group ">
                                             <label for="AlterarnameFantasia">Nome</label>
-                                            <input type="text" class="form-control form-control-sm" id="AlterarnameFantasia"
+                                            <input type="text" class="form-control form-control-sm"
+                                                   id="AlterarnameFantasia"
                                                    value="${item.getNome()}"
                                                    name="nome" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="Alterarcidade">Função</label>
-                                            <input type="text" value="${item.getFuncao()}" class="form-control form-control-sm" id="Alterarcidade"
-                                                   name="funcao"  required>
+                                            <input type="text" value="${item.getFuncao()}"
+                                                   class="form-control form-control-sm" id="Alterarcidade"
+                                                   name="funcao" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="Alterarbairro">E-mail</label>
-                                            <input type="text" value="${item.getEmail()}" class="form-control form-control-sm" id="Alterarbairro"
-                                                   name="email"  required>
+                                            <input type="text" value="${item.getEmail()}"
+                                                   class="form-control form-control-sm" id="Alterarbairro"
+                                                   name="email" required>
                                         </div>
                                         <div class="form-group">
-                                            <label >Data Entrada</label>
-                                            <input type="date" value = "<fmt:formatDate value="${item.getDataEntrada()}" type="date"  pattern="yyyy-MM-dd" />" class="form-control form-control-sm"
+                                            <label>Data Entrada</label>
+                                            <input type="date"
+                                                   value="<fmt:formatDate value="${item.getDataEntrada()}" type="date"  pattern="yyyy-MM-dd" />"
+                                                   class="form-control form-control-sm"
                                                    name="dataEntrada" required>
                                         </div>
                                         <div class="form-group">
                                             <label>Data Saída</label>
-                                            <input type="date" value = "<fmt:formatDate value="${item.getDataSaida()}" type="date"  pattern="yyyy-MM-dd" />" class="form-control form-control-sm"
+                                            <input type="date"
+                                                   value="<fmt:formatDate value="${item.getDataSaida()}" type="date"  pattern="yyyy-MM-dd" />"
+                                                   class="form-control form-control-sm"
                                                    name="dataSaida" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
+                                        </button>
                                         <button type="submit" class="btn btn-primary">Salvar</button>
                                     </div>
                                 </form>
@@ -130,17 +140,18 @@
                                    name="funcao" aria-describedby="emailHelp" required>
                         </div>
                         <div class="form-group">
-                            <label >E-mail</label>
+                            <label>E-mail</label>
                             <input type="text" class="form-control form-control-sm"
                                    name="email" aria-describedby="emailHelp" required>
                         </div>
                         <div class="form-group">
-                            <label >Data Entrada</label>
-                           <input type="date" class="form-control form-control-sm"
-                                   name="dataEntrada"  path="dataEntrada" class= "date" aria-describedby="emailHelp" required>
+                            <label>Data Entrada</label>
+                            <input type="date" class="form-control form-control-sm"
+                                   name="dataEntrada" path="dataEntrada" class="date" aria-describedby="emailHelp"
+                                   required>
                         </div>
                         <div class="form-group">
-                            <label >Data Saída</label>
+                            <label>Data Saída</label>
                             <input type="date" class="form-control form-control-sm"
                                    name="dataSaida" aria-describedby="emailHelp" required>
                         </div>

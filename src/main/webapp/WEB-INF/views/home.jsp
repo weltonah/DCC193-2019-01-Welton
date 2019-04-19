@@ -58,7 +58,8 @@
                             <a href="GetAtividade?idSede=${item.getId()}" class="btn btn-primary" role="button">Atividades</a>
                         </th>
                     </tr>
-                    <div class="modal fade" id="AlterarModal${item.getId()}" tabindex="-1" role="dialog" aria-labelledby="AlterarModal${item.getId()}Label"
+                    <div class="modal fade" id="AlterarModal${item.getId()}" tabindex="-1" role="dialog"
+                         aria-labelledby="AlterarModal${item.getId()}Label"
                          aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
@@ -72,13 +73,15 @@
                                     <div class="modal-body">
                                         <div class="form-group ">
                                             <label for="AlterarnameFantasia">Nome Fantasia</label>
-                                            <input type="text" class="form-control form-control-sm" id="AlterarnameFantasia"
+                                            <input type="text" class="form-control form-control-sm"
+                                                   id="AlterarnameFantasia"
                                                    value="${item.getNome()}"
                                                    name="nome" aria-describedby="emailHelp" placeholder="nome Fantasia">
                                         </div>
                                         <div class="form-group ">
                                             <label for="AlterarFormControlSelect1">UF</label>
-                                            <select class="form-control form-control-sm" name="UF" id="AlterarFormControlSelect1">
+                                            <select class="form-control form-control-sm" name="UF"
+                                                    id="AlterarFormControlSelect1">
                                                 <option value="${item.getUF()}">${item.getUF()}</option>
                                                 <option value="AC">AC</option>
                                                 <option value="AL">AL</option>
@@ -111,27 +114,36 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="Alterarcidade">Cidade</label>
-                                            <input type="text" value="${item.getCidade()}" class="form-control form-control-sm" id="Alterarcidade"
-                                                   name="cidade" aria-describedby="emailHelp" placeholder="cidade" required>
+                                            <input type="text" value="${item.getCidade()}"
+                                                   class="form-control form-control-sm" id="Alterarcidade"
+                                                   name="cidade" aria-describedby="emailHelp" placeholder="cidade"
+                                                   required>
                                         </div>
                                         <div class="form-group">
                                             <label for="Alterarbairro">Cidade</label>
-                                            <input type="text" value="${item.getBairro()}" class="form-control form-control-sm" id="Alterarbairro"
-                                                   name="bairro" aria-describedby="emailHelp" placeholder="bairro" required>
+                                            <input type="text" value="${item.getBairro()}"
+                                                   class="form-control form-control-sm" id="Alterarbairro"
+                                                   name="bairro" aria-describedby="emailHelp" placeholder="bairro"
+                                                   required>
                                         </div>
                                         <div class="form-group">
                                             <label for="Alterartelefone">Telefone</label>
-                                            <input type="text" value="${item.getTelefone()}" class="form-control form-control-sm" id="Alterartelefone"
-                                                   name="telefone" aria-describedby="emailHelp" placeholder="telefone" required>
+                                            <input type="text" value="${item.getTelefone()}"
+                                                   class="form-control form-control-sm" id="Alterartelefone"
+                                                   name="telefone" aria-describedby="emailHelp" placeholder="telefone"
+                                                   required>
                                         </div>
                                         <div class="form-group">
                                             <label for="AlterarWeb">Endereço Web</label>
-                                            <input type="text" value="${item.getEnderecoWeb()}" class="form-control form-control-sm" id="AlterarWeb"
-                                                   name="enderecoWeb" aria-describedby="emailHelp" placeholder="endereço web" required>
+                                            <input type="text" value="${item.getEnderecoWeb()}"
+                                                   class="form-control form-control-sm" id="AlterarWeb"
+                                                   name="enderecoWeb" aria-describedby="emailHelp"
+                                                   placeholder="endereço web" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
-                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>
+                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
+                                        </button>
                                         <button type="submit" class="btn btn-primary">Salvar</button>
                                     </div>
                                 </form>

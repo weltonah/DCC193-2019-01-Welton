@@ -1,7 +1,6 @@
 package br.com.dcc193.dcc193201901welton.controller;
 
 import br.com.dcc193.dcc193201901welton.dao.AtividadeRepository;
-import br.com.dcc193.dcc193201901welton.dao.AtividadeRepository;
 import br.com.dcc193.dcc193201901welton.dao.SedeRepository;
 import br.com.dcc193.dcc193201901welton.model.Atividade;
 import org.springframework.beans.factory.annotation.Autowired;
