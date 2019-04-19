@@ -8,7 +8,6 @@ import br.com.dcc193.dcc193201901welton.model.Sede;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -36,14 +35,14 @@ public class homeController {
     }
 
     @RequestMapping("alterarSede")
-    String UpdateSede(Long idSede,Sede sede) {
+    String UpdateSede(Long idSede, Sede sede) {
         sede.setId(idSede);
         sedeRepository.save(sede);
         return "redirect:/";
     }
 
     @RequestMapping("deletarSede")
-    String DeleteSede( Long id) {
+    String DeleteSede(Long id) {
         sedeRepository.deleteById(id);
         return "redirect:/";
     }
@@ -58,25 +57,23 @@ public class homeController {
     }
 
     @RequestMapping("cadastrarMenbro")
-    String PostMenbro(Long idSede,Menbro menbro) {
+    String PostMenbro(Long idSede, Menbro menbro) {
         menbro.setSede(sedeRepository.findById(idSede).get());
         menbroRepository.save(menbro);
-        return "redirect:verMenbros?idSede="+idSede;
+        return "redirect:verMenbros?idSede=" + idSede;
     }
 
     @RequestMapping("deletarMenbro")
-    String DeletarMenbro(Long idSede, Long idMebro) {
-        menbroRepository.deleteById(idMebro);
-        return "redirect:verMenbros?idSede="+idSede;
+    String DeletarMenbro(Long idSede, Long idMenbro) {
+        menbroRepository.deleteById(idMenbro);
+        return "redirect:verMenbros?idSede=" + idSede;
     }
 
     @RequestMapping("alterarMenbro")
-    String UpdateMenbro( Long idSede,Long idMenbro,Menbro menbro) {
+    String UpdateMenbro(Long idSede, Long idMenbro, Menbro menbro) {
         menbro.setId(idMenbro);
         menbro.setSede(sedeRepository.findById(idSede).get());
         menbroRepository.save(menbro);
-        return "redirect:verMenbros?idSede="+idSede;
+        return "redirect:verMenbros?idSede=" + idSede;
     }
-
-
 }

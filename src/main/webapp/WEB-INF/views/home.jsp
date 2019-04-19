@@ -112,22 +112,22 @@
                                         <div class="form-group">
                                             <label for="Alterarcidade">Cidade</label>
                                             <input type="text" value="${item.getCidade()}" class="form-control form-control-sm" id="Alterarcidade"
-                                                   name="cidade" aria-describedby="emailHelp" placeholder="cidade">
+                                                   name="cidade" aria-describedby="emailHelp" placeholder="cidade" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="Alterarbairro">Cidade</label>
                                             <input type="text" value="${item.getBairro()}" class="form-control form-control-sm" id="Alterarbairro"
-                                                   name="bairro" aria-describedby="emailHelp" placeholder="bairro">
+                                                   name="bairro" aria-describedby="emailHelp" placeholder="bairro" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="Alterartelefone">Telefone</label>
                                             <input type="text" value="${item.getTelefone()}" class="form-control form-control-sm" id="Alterartelefone"
-                                                   name="telefone" aria-describedby="emailHelp" placeholder="telefone">
+                                                   name="telefone" aria-describedby="emailHelp" placeholder="telefone" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="AlterarWeb">Endereço Web</label>
                                             <input type="text" ${item.getEnderecoWeb()} class="form-control form-control-sm" id="AlterarWeb"
-                                                   name="enderecoWeb" aria-describedby="emailHelp" placeholder="endereço web">
+                                                   name="enderecoWeb" aria-describedby="emailHelp" placeholder="endereço web" required>
                                         </div>
                                     </div>
                                     <div class="modal-footer">
@@ -164,7 +164,7 @@
                         <div class="form-group">
                             <label for="examplenameFantasia">Nome Fantasia</label>
                             <input type="text" class="form-control form-control-sm" id="examplenameFantasia"
-                                   name="nome" aria-describedby="emailHelp" placeholder="nome Fantasia">
+                                   name="nome" aria-describedby="emailHelp" placeholder="nome Fantasia" required>
                         </div>
                         <div class="form-group">
                             <label for="exampleFormControlSelect1">UF</label>
@@ -202,22 +202,22 @@
                         <div class="form-group">
                             <label for="examplecidade">Cidade</label>
                             <input type="text" class="form-control form-control-sm" id="examplecidade"
-                                   name="cidade" aria-describedby="emailHelp" placeholder="cidade">
+                                   name="cidade" aria-describedby="emailHelp" placeholder="cidade" required>
                         </div>
                         <div class="form-group">
                             <label for="examplebairro">Bairro</label>
                             <input type="text" class="form-control form-control-sm" id="examplebairro"
-                                   name="bairro" aria-describedby="emailHelp" placeholder="bairro">
+                                   name="bairro" aria-describedby="emailHelp" placeholder="bairro" required>
                         </div>
                         <div class="form-group">
                             <label for="exampletelefone">Telefone</label>
                             <input type="text" class="form-control form-control-sm" id="exampletelefone"
-                                   name="telefone" aria-describedby="emailHelp" placeholder="telefone">
+                                   name="telefone" aria-describedby="emailHelp" placeholder="telefone" required>
                         </div>
                         <div class="form-group">
                             <label for="exampletelefone">Endereço Web</label>
                             <input type="text" class="form-control form-control-sm" id="exampleWeb"
-                                   name="enderecoWeb" aria-describedby="emailHelp" placeholder="endereço web">
+                                   name="enderecoWeb" aria-describedby="emailHelp" placeholder="endereço web" required>
                         </div>
                     </div>
                     <div class="modal-footer">
