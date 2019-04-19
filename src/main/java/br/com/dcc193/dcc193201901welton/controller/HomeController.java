@@ -14,11 +14,10 @@ public class HomeController {
     SedeRepository sedeRepository;
 
     @RequestMapping("/")
-    ModelAndView GetSede(Model model) {
+    String Home(Model model) {
         ModelAndView mv = new ModelAndView();
-        mv.addObject("listaSede", sedeRepository.findAll());
-        mv.setViewName("home");
-        return mv;
+        model.addAttribute("listaSede", sedeRepository.findAll());
+        return "home";
     }
 
     @RequestMapping("PostSede")
@@ -34,7 +33,7 @@ public class HomeController {
         return "redirect:/";
     }
 
-    @RequestMapping("deletarSede")
+    @RequestMapping("DeleteSede")
     String DeleteSede(Long id) {
         sedeRepository.deleteById(id);
         return "redirect:/";

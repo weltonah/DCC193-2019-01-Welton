@@ -52,10 +52,10 @@
                         <th>${item.getTelefone()}</th>
                         <th>${item.getEnderecoWeb()}</th>
                         <th scope="row">
-                            <a href="GetMembro?idSede=${item.getId()}" class="btn btn-primary" role="button">Menbros</a>
+                            <a href="GetMenbro?idSede=${item.getId()}" class="btn btn-primary" role="button">Menbros</a>
                         </th>
                         <th scope="row">
-                            <a href="verAtividades?idSede=${item.getId()}" class="btn btn-primary" role="button">Atividades</a>
+                            <a href="GetAtividade?idSede=${item.getId()}" class="btn btn-primary" role="button">Atividades</a>
                         </th>
                     </tr>
                     <div class="modal fade" id="AlterarModal${item.getId()}" tabindex="-1" role="dialog" aria-labelledby="AlterarModal${item.getId()}Label"
