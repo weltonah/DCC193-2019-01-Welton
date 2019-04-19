@@ -37,7 +37,7 @@
                 <c:forEach items="${listaSede}" var="item" varStatus="status">
                     <tr>
                         <th scope="row">
-                            <a href="deletarSede?id=${item.getId()}" class="btn btn-primary" role="button">Delete</a>
+                            <a href="DeleteSede?id=${item.getId()}" class="btn btn-primary" role="button">Delete</a>
                         </th>
                         <th>
                             <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -52,7 +52,7 @@
                         <th>${item.getTelefone()}</th>
                         <th>${item.getEnderecoWeb()}</th>
                         <th scope="row">
-                            <a href="verMenbros?idSede=${item.getId()}" class="btn btn-primary" role="button">Menbros</a>
+                            <a href="GetMembro?idSede=${item.getId()}" class="btn btn-primary" role="button">Menbros</a>
                         </th>
                         <th scope="row">
                             <a href="verAtividades?idSede=${item.getId()}" class="btn btn-primary" role="button">Atividades</a>
@@ -68,7 +68,7 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="alterarSede?idSede=${item.getId()}" method="post">
+                                <form action="UpdateSede?idSede=${item.getId()}" method="post">
                                     <div class="modal-body">
                                         <div class="form-group ">
                                             <label for="AlterarnameFantasia">Nome Fantasia</label>
@@ -126,7 +126,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="AlterarWeb">Endereço Web</label>
-                                            <input type="text" ${item.getEnderecoWeb()} class="form-control form-control-sm" id="AlterarWeb"
+                                            <input type="text" value="${item.getEnderecoWeb()}" class="form-control form-control-sm" id="AlterarWeb"
                                                    name="enderecoWeb" aria-describedby="emailHelp" placeholder="endereço web" required>
                                         </div>
                                     </div>
@@ -159,7 +159,7 @@
                     </button>
                 </div>
 
-                <form action="cadastrarSede" method="post">
+                <form action="PostSede" method="post">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="examplenameFantasia">Nome Fantasia</label>
