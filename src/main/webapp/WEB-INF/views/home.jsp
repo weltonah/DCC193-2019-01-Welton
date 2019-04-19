@@ -29,13 +29,15 @@
                     <th scope="col">Bairro</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Endereço Web</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${listaSede}" var="item" varStatus="status">
                     <tr>
                         <th scope="row">
-                            <a href="deletarSede/${item.getId()}" class="btn btn-primary" role="button">Delete</a>
+                            <a href="deletarSede?id=${item.getId()}" class="btn btn-primary" role="button">Delete</a>
                         </th>
                         <th>
                             <button type="button" class="btn btn-primary" data-toggle="modal"
@@ -49,6 +51,12 @@
                         <th>${item.getBairro()}</th>
                         <th>${item.getTelefone()}</th>
                         <th>${item.getEnderecoWeb()}</th>
+                        <th scope="row">
+                            <a href="verMenbros?idSede=${item.getId()}" class="btn btn-primary" role="button">Menbros</a>
+                        </th>
+                        <th scope="row">
+                            <a href="verAtividades?idSede=${item.getId()}" class="btn btn-primary" role="button">Atividades</a>
+                        </th>
                     </tr>
                     <div class="modal fade" id="AlterarModal${item.getId()}" tabindex="-1" role="dialog" aria-labelledby="AlterarModal${item.getId()}Label"
                          aria-hidden="true">
@@ -60,13 +68,8 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                 </div>
-                                <form action="alterarSede" method="post">
+                                <form action="alterarSede?idSede=${item.getId()}" method="post">
                                     <div class="modal-body">
-                                        <div class="form-group ">
-                                            <input type="text" class="form-control form-control-sm d-none"
-                                                   value="${item.getId()}"
-                                                   name="id" >
-                                        </div>
                                         <div class="form-group ">
                                             <label for="AlterarnameFantasia">Nome Fantasia</label>
                                             <input type="text" class="form-control form-control-sm" id="AlterarnameFantasia"
