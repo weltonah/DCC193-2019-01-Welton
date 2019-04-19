@@ -17,6 +17,13 @@
 <div class="container mt-4 shadow p-3 mb-5 bg-white rounded" style="background-color:white; ">
     <div class="row">
         <div class="col-12">
+            <div class="row justify-content-md-center">
+                <div class="col-md-auto">
+                    <h3> Lista de Atividades</h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-12">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadastroModal">
                 <ion-icon name="add"></ion-icon>Cadastrar
             </button>
