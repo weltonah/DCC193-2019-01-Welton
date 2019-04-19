@@ -61,13 +61,14 @@ public class Atividade {
     public Date getDataInicial() {
         return dataInicial;
     }
+
+    public void setDataInicial(Date dataInicial) {
+        this.dataInicial = dataInicial;
+    }
+
     public String getDataInicialStr() {
         SimpleDateFormat formato = new SimpleDateFormat("dd/MM/yyyy");
         return formato.format(getDataInicial());
-    }
-
-    public void setDataInicial(Date datainicial) {
-        this.dataInicial = dataInicial;
     }
 
     public Date getDataFinal() {

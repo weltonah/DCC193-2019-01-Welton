@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class MenbroController {
 
@@ -19,7 +18,6 @@ public class MenbroController {
 
     @RequestMapping("GetMenbro")
     String GetMenbro(Long idSede, Model model) {
-        ModelAndView mv = new ModelAndView();
         model.addAttribute("listaMenbro", menbroRepository.findBySede(sedeRepository.findById(idSede).get()));
         model.addAttribute("idSede", idSede);
         return "menbro";

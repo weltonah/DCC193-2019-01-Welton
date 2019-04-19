@@ -7,7 +7,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+
+import java.util.List;
 
 @Controller
 public class AtividadeController {
@@ -20,7 +21,7 @@ public class AtividadeController {
 
     @RequestMapping("GetAtividade")
     String GetAtividade(Long idSede, Model model) {
-        ModelAndView mv = new ModelAndView();
+        List<Atividade> aux = atividadeRepository.findBySede(sedeRepository.findById(idSede).get());
         model.addAttribute("listaAtividade", atividadeRepository.findBySede(sedeRepository.findById(idSede).get()));
         model.addAttribute("idSede", idSede);
         return "atividade";

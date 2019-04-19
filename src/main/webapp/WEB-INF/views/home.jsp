@@ -4,22 +4,27 @@
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
-    <title>Document</title>
+    <title>Home</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://unpkg.com/ionicons@4.5.5/dist/ionicons.js"></script>
 </head>
-<body>
-<div class="container">
+<body style="background-color: #f2f2f2;">
+
+<div class="row">
+    <c:import url="cabecalho.jsp" />
+</div>
+<div class="container mt-4 shadow p-3 mb-5 bg-white rounded" style="background-color:white; ">
     <div class="row">
         <div class="col-12">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadastroModal">
-                Cadastrar
+                <ion-icon name="add"></ion-icon>Cadastrar
             </button>
         </div>
-        <div class="col-12">
+        <div class="col-12 mt-4">
 
-            <table class="table">
-                <thead>
+            <table class="table table-striped">
+                <thead class="thead-light">
                 <tr>
                     <th scope="col"></th>
                     <th scope="col"></th>
@@ -29,20 +34,22 @@
                     <th scope="col">Bairro</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Endereço Web</th>
-                    <th scope="col"></th>
-                    <th scope="col"></th>
+                    <th scope="col">Menbros</th>
+                    <th scope="col">Atividades</th>
                 </tr>
                 </thead>
-                <tbody>
+                <tbody style="font-size: 15px;">
                 <c:forEach items="${listaSede}" var="item" varStatus="status">
                     <tr>
                         <th scope="row">
-                            <a href="DeleteSede?id=${item.getId()}" class="btn btn-primary" role="button">Delete</a>
+                            <a href="DeleteSede?id=${item.getId()}" class="btn btn-outline-danger btn-sm" role="button">
+                                <div class="col-6"><ion-icon name="close"></ion-icon></div>
+                            </a>
                         </th>
                         <th>
-                            <button type="button" class="btn btn-primary" data-toggle="modal"
+                            <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal"
                                     data-target="#AlterarModal${item.getId()}">
-                                Alterar
+                                <div class="col-6"><ion-icon name="create"></ion-icon></div>
                             </button>
                         </th>
                         <th>${item.getNome()}</th>
