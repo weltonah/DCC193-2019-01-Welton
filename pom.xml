@@ -9,9 +9,9 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>br.com.dcc193</groupId>
-	<artifactId>dcc-193-2019-01-welton</artifactId>
+	<artifactId>dcc193201901welton</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>dcc-193-2019-01-welton</name>
+	<name>demo</name>
 	<description>Demo project for Spring Boot</description>
 
 	<properties>
