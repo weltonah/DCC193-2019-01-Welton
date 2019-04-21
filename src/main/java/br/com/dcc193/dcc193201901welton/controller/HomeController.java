@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.util.Comparator;
+import java.util.List;
+
 @Controller
 public class HomeController {
     @Autowired
@@ -14,7 +17,9 @@ public class HomeController {
 
     @RequestMapping("/")
     String Home(Model model) {
-        model.addAttribute("listaSede", sedeRepository.findAll());
+        List<Sede> resultOrdenado = sedeRepository.findAll();
+        resultOrdenado.sort(Comparator.comparing(Sede::getHorasTotais));
+        model.addAttribute("listaSede", resultOrdenado);
         return "home";
     }
 

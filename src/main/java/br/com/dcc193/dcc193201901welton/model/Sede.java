@@ -1,9 +1,8 @@
 package br.com.dcc193.dcc193201901welton.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 public class Sede {
@@ -19,18 +18,21 @@ public class Sede {
     private String telefone;
     private String enderecoWeb;
 
+    @OneToMany(mappedBy = "refSede")
+    private List<Atividade> atividades ;
 
 
     public Sede() {
     }
 
-    public Sede(String nome, String UF, String cidade, String bairro, String telefone, String enderecoWeb) {
+    public Sede(String nome, String UF, String cidade, String bairro, String telefone, String enderecoWeb, ArrayList<Atividade> atividades) {
         this.nome = nome;
         this.UF = UF;
         this.cidade = cidade;
         this.bairro = bairro;
         this.telefone = telefone;
         this.enderecoWeb = enderecoWeb;
+        this.atividades = atividades;
     }
 
     public long getId() {
@@ -81,11 +83,25 @@ public class Sede {
         this.telefone = telefone;
     }
 
-    public String getEnderecoWeb() {
-        return enderecoWeb;
+    public void setAtividades(List<Atividade> atividades) {
+        this.atividades = atividades;
     }
 
     public void setEnderecoWeb(String enderecoWeb) {
         this.enderecoWeb = enderecoWeb;
     }
+
+    public String getEnderecoWeb() {
+        return enderecoWeb;
+    }
+
+    public List<Atividade> getAtividades() {
+        return atividades;
+    }
+
+    public int getHorasTotais() {
+        return this.atividades.stream().map(u -> u.getHorasTotais()).mapToInt(Integer::intValue).sum();
+    }
+    
+
 }

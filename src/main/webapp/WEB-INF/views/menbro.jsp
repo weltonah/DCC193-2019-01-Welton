@@ -69,7 +69,7 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="AlterarModal${item.getId()}Label">Editar de Sede</h5>
+                                    <h5 class="modal-title" id="AlterarModal${item.getId()}Label">Editar de Menbro</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -113,7 +113,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
                                         </button>
-                                        <button type="submit" class="btn btn-primary">Salvar</button>
+                                        <button type="submit" class="btn btn-primary">Atualizar</button>
                                     </div>
                                 </form>
                             </div>
@@ -134,7 +134,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="cadastroModalLabel">Cadastro de Sede</h5>
+                    <h5 class="modal-title" id="cadastroModalLabel">Cadastro de Menbro</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -145,29 +145,30 @@
                         <div class="form-group ">
                             <label>Nome</label>
                             <input type="text" class="form-control form-control-sm"
-                                   name="nome" aria-describedby="emailHelp" required>
+                                   name="nome"  required>
                         </div>
                         <div class="form-group">
                             <label>Função</label>
                             <input type="text" class="form-control form-control-sm"
-                                   name="funcao" aria-describedby="emailHelp" required>
+                                   name="funcao"  required>
                         </div>
                         <div class="form-group">
                             <label>E-mail</label>
                             <input type="text" class="form-control form-control-sm"
-                                   name="email" aria-describedby="emailHelp" required>
+                                   name="email"  required>
                         </div>
                         <div class="form-group">
                             <label>Data Entrada</label>
                             <input type="date" class="form-control form-control-sm"
-                                   name="dataEntrada" path="dataEntrada" class="date" aria-describedby="emailHelp"
+                                   name="dataEntrada" path="dataEntrada" class="date" 
                                    required>
                         </div>
                         <div class="form-group">
                             <label>Data Saída</label>
                             <input type="date" class="form-control form-control-sm"
-                                   name="dataSaida" aria-describedby="emailHelp" required>
+                                   name="dataSaida"  required>
                         </div>
+
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar</button>

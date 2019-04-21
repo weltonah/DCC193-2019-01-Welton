@@ -9,5 +9,5 @@ import java.util.List;
 
 @Repository
 public interface AtividadeRepository extends JpaRepository<Atividade, Long> {
-    List<Atividade> findBySede(Sede sede);
+    List<Atividade> findByRefSede(Sede sede);
 }

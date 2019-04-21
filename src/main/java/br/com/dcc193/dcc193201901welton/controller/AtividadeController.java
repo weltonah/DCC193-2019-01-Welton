@@ -21,15 +21,15 @@ public class AtividadeController {
 
     @RequestMapping("GetAtividade")
     String GetAtividade(Long idSede, Model model) {
-        List<Atividade> aux = atividadeRepository.findBySede(sedeRepository.findById(idSede).get());
-        model.addAttribute("listaAtividade", atividadeRepository.findBySede(sedeRepository.findById(idSede).get()));
+        List<Atividade> aux = atividadeRepository.findByRefSede(sedeRepository.findById(idSede).get());
+        model.addAttribute("listaAtividade", atividadeRepository.findByRefSede(sedeRepository.findById(idSede).get()));
         model.addAttribute("idSede", idSede);
         return "atividade";
     }
 
     @RequestMapping("PostAtividade")
     String PostAtividade(Long idSede, Atividade atividade) {
-        atividade.setSede(sedeRepository.findById(idSede).get());
+        atividade.setRefSede(sedeRepository.findById(idSede).get());
         atividadeRepository.save(atividade);
         return "redirect:GetAtividade?idSede=" + idSede;
     }
@@ -43,7 +43,7 @@ public class AtividadeController {
     @RequestMapping("UpdateAtividade")
     String UpdateAtividade(Long idSede, Long idAtividade, Atividade atividade) {
         atividade.setId(idAtividade);
-        atividade.setSede(sedeRepository.findById(idSede).get());
+        atividade.setRefSede(sedeRepository.findById(idSede).get());
         atividadeRepository.save(atividade);
         return "redirect:GetAtividade?idSede=" + idSede;
     }

@@ -19,19 +19,27 @@ public class Atividade {
     private Date dataInicial;
     @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date dataFinal;
+    private int assistencial = 0;
+    private int juridica = 0;
+    private int financeira = 0;
+    private int executiva = 0;
 
-    @ManyToOne
-    private Sede sede;
+    @ManyToOne(fetch = FetchType.LAZY)
+    private Sede refSede;
 
     public Atividade() {
     }
 
-    public Atividade(String titulo, String descricao, Date dataInicial, Date dataFinal, Sede sede) {
+    public Atividade(String titulo, String descricao, Date dataInicial, Date dataFinal, int assistencial, int juridica, int financeira, int executiva, Sede refSede) {
         this.titulo = titulo;
         this.descricao = descricao;
         this.dataInicial = dataInicial;
         this.dataFinal = dataFinal;
-        this.sede = sede;
+        this.assistencial = assistencial;
+        this.juridica = juridica;
+        this.financeira = financeira;
+        this.executiva = executiva;
+        this.refSede = refSede;
     }
 
     public long getId() {
@@ -83,11 +91,47 @@ public class Atividade {
     public void setDataFinal(Date dataFinal) {
         this.dataFinal = dataFinal;
     }
-    public Sede getSede() {
-        return sede;
+    public Sede getRefSede() {
+        return refSede;
     }
 
-    public void setSede(Sede sede) {
-        this.sede = sede;
+    public void setRefSede(Sede refSede) {
+        this.refSede = refSede;
+    }
+
+    public int getAssistencial() {
+        return assistencial;
+    }
+
+    public void setAssistencial(int assistencial) {
+        this.assistencial = assistencial;
+    }
+
+    public int getJuridica() {
+        return juridica;
+    }
+
+    public void setJuridica(int juridica) {
+        this.juridica = juridica;
+    }
+
+    public int getFinanceira() {
+        return financeira;
+    }
+
+    public void setFinanceira(int financeira) {
+        this.financeira = financeira;
+    }
+
+    public int getExecutiva() {
+        return executiva;
+    }
+
+    public void setExecutiva(int executiva) {
+        this.executiva = executiva;
+    }
+
+    public int getHorasTotais(){
+        return executiva + juridica + assistencial+ financeira;
     }
 }

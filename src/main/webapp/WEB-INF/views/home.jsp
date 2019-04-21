@@ -41,6 +41,7 @@
                     <th scope="col">Bairro</th>
                     <th scope="col">Telefone</th>
                     <th scope="col">Endereço Web</th>
+                    <th scope="col">Horas de Atividade</th>
                     <th scope="col">Menbros</th>
                     <th scope="col">Atividades</th>
                 </tr>
@@ -65,6 +66,7 @@
                         <th>${item.getBairro()}</th>
                         <th>${item.getTelefone()}</th>
                         <th>${item.getEnderecoWeb()}</th>
+                        <th>${item.getHorasTotais()}</th>
                         <th scope="row">
                             <a href="GetMenbro?idSede=${item.getId()}" class="btn btn-primary" role="button">Menbros</a>
                         </th>
@@ -158,7 +160,7 @@
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
                                         </button>
-                                        <button type="submit" class="btn btn-primary">Salvar</button>
+                                        <button type="submit" class="btn btn-primary">Atualizar</button>
                                     </div>
                                 </form>
                             </div>

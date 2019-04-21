@@ -12,7 +12,7 @@
 </head>
 <body style="background-color: #f2f2f2;">
 <div class="row">
-    <c:import url="cabecalho.jsp" />
+    <c:import url="cabecalho.jsp"/>
 </div>
 <div class="container mt-4 shadow p-3 mb-5 bg-white rounded" style="background-color:white; ">
     <div class="row">
@@ -25,7 +25,8 @@
         </div>
         <div class="col-12">
             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#cadastroModal">
-                <ion-icon name="add"></ion-icon>Cadastrar
+                <ion-icon name="add"></ion-icon>
+                Cadastrar
             </button>
         </div>
         <div class="col-12 mt-4">
@@ -38,27 +39,35 @@
                     <th scope="col">Descrição</th>
                     <th scope="col">Data Inicio</th>
                     <th scope="col">Data Saída</th>
+                    <th scope="col">Horas Totais</th>
                 </tr>
                 </thead>
                 <tbody>
                 <c:forEach items="${listaAtividade}" var="item" varStatus="status">
                     <tr>
                         <th scope="row">
-                            <a href="DeleteAtividade?idSede=${idSede}&idAtividade=${item.getId()}" class="btn btn-outline-danger btn-sm" role="button">
-                                <div class="col-6"><ion-icon name="close"></ion-icon></div>
+                            <a href="DeleteAtividade?idSede=${idSede}&idAtividade=${item.getId()}"
+                               class="btn btn-outline-danger btn-sm" role="button">
+                                <div class="col-6">
+                                    <ion-icon name="close"></ion-icon>
+                                </div>
                             </a>
                         </th>
                         <th>
 
                             <button type="button" class="btn btn-outline-warning btn-sm" data-toggle="modal"
                                     data-target="#AlterarModal${item.getId()}">
-                                <div class="col-6"><ion-icon name="create"></ion-icon></div>
+                                <div class="col-6">
+                                    <ion-icon name="create"></ion-icon>
+                                </div>
                             </button>
                         </th>
                         <th>${item.getTitulo()}</th>
                         <th>${item.getDescricao()}</th>
                         <th>${item.getDataInicialStr()}</th>
                         <th>${item.getDataFinalStr()}</th>
+                        <th>${item.getHorasTotais()}</th>
+
                     </tr>
                     <div class="modal fade" id="AlterarModal${item.getId()}" tabindex="-1" role="dialog"
                          aria-labelledby="AlterarModal${item.getId()}Label"
@@ -66,7 +75,8 @@
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="AlterarModal${item.getId()}Label">Editar de Sede</h5>
+                                    <h5 class="modal-title" id="AlterarModal${item.getId()}Label">Editar de
+                                        Atividade</h5>
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
@@ -75,15 +85,16 @@
                                       method="post">
                                     <div class="modal-body">
                                         <div class="form-group ">
-                                            <label >Título</label>
+                                            <label>Título</label>
                                             <input type="text" class="form-control form-control-sm"
                                                    value="${item.getTitulo()}"
                                                    name="titulo" required>
                                         </div>
                                         <div class="form-group">
-                                            <label >Descrição</label>
+                                            <label>Descrição</label>
                                             <textarea type="text" class="form-control form-control-sm"
-                                                      rows="3" name="descricao" required>${item.getDescricao()}</textarea>
+                                                      rows="3" name="descricao"
+                                                      required>${item.getDescricao()}</textarea>
                                         </div>
                                         <div class="form-group">
                                             <label>Data Inicial</label>
@@ -99,11 +110,44 @@
                                                    class="form-control form-control-sm"
                                                    name="dataFinal" required>
                                         </div>
+                                        <div class="card">
+                                            <div class="card-header">
+                                                Horas Computadas de Trabalho
+                                            </div>
+                                            <div class="card-body">
+                                                <div class="col-12">
+                                                    <div class="row">
+                                                        <div class=" col">
+                                                            <label>Assistencial</label>
+                                                            <input type="number" value="${item.getAssistencial()}" class="form-control form-control-sm"
+                                                                   name="assistencial" min="0" placeholder="Horas" required>
+                                                        </div>
+                                                        <div class=" col">
+                                                            <label>Jurídica</label>
+                                                            <input type="number" value="${item.getJuridica()}" class="form-control form-control-sm"
+                                                                   name="juridica" min="0"  placeholder="Horas" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class=" col">
+                                                            <label>Financeira</label>
+                                                            <input type="number" value="${item.getFinanceira()}" min="0" class="form-control form-control-sm"
+                                                                   name="financeira" placeholder="Horas" required>
+                                                        </div>
+                                                        <div class=" col">
+                                                            <label>Executiva</label>
+                                                            <input type="number" value="${item.getExecutiva()}" min="0" class="form-control form-control-sm"
+                                                                   name="executiva" placeholder="Horas" required>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="modal-footer">
                                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Fechar
                                         </button>
-                                        <button type="submit" class="btn btn-primary">Salvar</button>
+                                        <button type="submit" class="btn btn-primary">Atualizar</button>
                                     </div>
                                 </form>
                             </div>
@@ -124,7 +168,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="cadastroModalLabel">Cadastro de Sede</h5>
+                    <h5 class="modal-title" id="cadastroModalLabel">Cadastro de Atividade</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -140,7 +184,7 @@
                         <div class="form-group">
                             <label>Descrição</label>
                             <textarea type="text" class="form-control form-control-sm"
-                                   rows="3" name="descricao" required></textarea>
+                                      rows="3" name="descricao" required></textarea>
                         </div>
                         <div class="form-group">
                             <label>Data Inicial</label>
@@ -151,6 +195,40 @@
                             <label>Data Final</label>
                             <input type="date" class="form-control form-control-sm"
                                    name="dataFinal" required>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                Horas Computadas de Trabalho
+                            </div>
+                            <div class="card-body">
+                                <div class="col-12">
+                                    <div class="row">
+                                        <div class=" col">
+                                            <label>Assistencial</label>
+                                            <input type="number" class="form-control form-control-sm"
+                                                   name="assistencial" min="0" placeholder="Horas" required>
+                                        </div>
+                                        <div class=" col">
+                                            <label>Jurídica</label>
+                                            <input type="number" class="form-control form-control-sm"
+                                                   name="juridica" min="0"  placeholder="Horas" required>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class=" col">
+                                            <label>Financeira</label>
+                                            <input type="number" min="0" class="form-control form-control-sm"
+                                                   name="financeira" placeholder="Horas" required>
+                                        </div>
+                                        <div class=" col">
+                                            <label>Executiva</label>
+                                            <input type="number" min="0" class="form-control form-control-sm"
+                                                   name="executiva" placeholder="Horas" required>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div class="modal-footer">
