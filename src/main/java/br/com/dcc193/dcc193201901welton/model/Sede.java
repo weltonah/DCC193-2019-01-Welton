@@ -21,11 +21,13 @@ public class Sede {
     @OneToMany(mappedBy = "refSede")
     private List<Atividade> atividades ;
 
+    @OneToMany(mappedBy = "refSede")
+    private List<Menbro> menbro ;
 
     public Sede() {
     }
 
-    public Sede(String nome, String UF, String cidade, String bairro, String telefone, String enderecoWeb, ArrayList<Atividade> atividades) {
+    public Sede(String nome, String UF, String cidade, String bairro, String telefone, String enderecoWeb, List<Atividade> atividades, List<Menbro> menbro) {
         this.nome = nome;
         this.UF = UF;
         this.cidade = cidade;
@@ -33,6 +35,7 @@ public class Sede {
         this.telefone = telefone;
         this.enderecoWeb = enderecoWeb;
         this.atividades = atividades;
+        this.menbro = menbro;
     }
 
     public long getId() {
@@ -97,6 +100,14 @@ public class Sede {
 
     public List<Atividade> getAtividades() {
         return atividades;
+    }
+
+    public List<Menbro> getMenbro() {
+        return menbro;
+    }
+
+    public void setMenbro(List<Menbro> menbro) {
+        this.menbro = menbro;
     }
 
     public int getHorasTotais() {

@@ -22,19 +22,19 @@ public class Menbro {
     private Date dataSaida;
 
     @ManyToOne
-    private Sede sede;
+    private Sede refSede;
 
     public Menbro() {
 
     }
 
-    public Menbro(String nome, String funcao, String email, Date dataEntrada, Date dataSaida, Sede sede) {
+    public Menbro(String nome, String funcao, String email, Date dataEntrada, Date dataSaida, Sede refSede) {
         this.nome = nome;
         this.funcao = funcao;
         this.email = email;
         this.dataEntrada = dataEntrada;
         this.dataSaida = dataSaida;
-        this.sede = sede;
+        this.refSede = refSede;
     }
 
     public long getId() {
@@ -94,11 +94,11 @@ public class Menbro {
         this.dataSaida = dataSaida;
     }
 
-    public Sede getSede() {
-        return sede;
+    public Sede getRefSede() {
+        return refSede;
     }
 
-    public void setSede(Sede sede) {
-        this.sede = sede;
+    public void setRefSede(Sede refSede) {
+        this.refSede = refSede;
     }
 }

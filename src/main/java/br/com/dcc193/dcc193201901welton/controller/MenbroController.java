@@ -18,7 +18,7 @@ public class MenbroController {
 
     @RequestMapping("GetMenbro")
     String GetMenbro(Long idSede, Model model) {
-        model.addAttribute("listaMenbro", menbroRepository.findBySede(sedeRepository.findById(idSede).get()));
+        model.addAttribute("listaMenbro", menbroRepository.findByRefSede(sedeRepository.findById(idSede).get()));
         model.addAttribute("idSede", idSede);
         return "menbro";
     }
@@ -26,7 +26,7 @@ public class MenbroController {
     @RequestMapping("PostMenbro")
     String PostMenbro(Long idSede, Menbro
             menbro) {
-        menbro.setSede(sedeRepository.findById(idSede).get());
+        menbro.setRefSede(sedeRepository.findById(idSede).get());
         menbroRepository.save(menbro);
         return "redirect:GetMenbro?idSede=" + idSede;
     }
@@ -40,7 +40,7 @@ public class MenbroController {
     @RequestMapping("UpdateMenbro")
     String UpdateMenbro(Long idSede, Long idMenbro, Menbro menbro) {
         menbro.setId(idMenbro);
-        menbro.setSede(sedeRepository.findById(idSede).get());
+        menbro.setRefSede(sedeRepository.findById(idSede).get());
         menbroRepository.save(menbro);
         return "redirect:GetMenbro?idSede=" + idSede;
     }
