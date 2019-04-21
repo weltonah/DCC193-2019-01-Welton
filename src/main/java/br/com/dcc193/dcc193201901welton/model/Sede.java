@@ -1,7 +1,6 @@
 package br.com.dcc193.dcc193201901welton.model;
 
 import javax.persistence.*;
-import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -111,7 +110,7 @@ public class Sede {
     }
 
     public int getHorasTotais() {
-        return this.atividades.stream().map(u -> u.getHorasTotais()).mapToInt(Integer::intValue).sum();
+        return this.atividades.stream().map(Atividade::getHorasTotais).mapToInt(Integer::intValue).sum();
     }
     
 

@@ -8,8 +8,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import java.util.List;
-
 @Controller
 public class AtividadeController {
 
@@ -21,7 +19,6 @@ public class AtividadeController {
 
     @RequestMapping("GetAtividade")
     String GetAtividade(Long idSede, Model model) {
-        List<Atividade> aux = atividadeRepository.findByRefSede(sedeRepository.findById(idSede).get());
         model.addAttribute("listaAtividade", atividadeRepository.findByRefSede(sedeRepository.findById(idSede).get()));
         model.addAttribute("idSede", idSede);
         return "atividade";
