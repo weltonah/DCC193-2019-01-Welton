@@ -11,4 +11,6 @@ import java.util.List;
 public interface MenbroRepository extends JpaRepository<Menbro,Long> {
 
     List<Menbro> findByRefSede(Sede sede);
+
+    
 }

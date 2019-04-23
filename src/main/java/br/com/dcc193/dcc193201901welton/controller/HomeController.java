@@ -1,6 +1,10 @@
 package br.com.dcc193.dcc193201901welton.controller;
 
+import br.com.dcc193.dcc193201901welton.dao.AtividadeRepository;
+import br.com.dcc193.dcc193201901welton.dao.MenbroRepository;
 import br.com.dcc193.dcc193201901welton.dao.SedeRepository;
+import br.com.dcc193.dcc193201901welton.model.Atividade;
+import br.com.dcc193.dcc193201901welton.model.Menbro;
 import br.com.dcc193.dcc193201901welton.model.Sede;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -14,6 +18,10 @@ import java.util.List;
 public class HomeController {
     @Autowired
     SedeRepository sedeRepository;
+    @Autowired
+    MenbroRepository menbroRepository;
+    @Autowired
+    AtividadeRepository atividadeRepository;
 
     @RequestMapping("/")
     String Home(Model model) {
@@ -38,6 +46,13 @@ public class HomeController {
 
     @RequestMapping("DeleteSede")
     String DeleteSede(Long id) {
+        Sede sede = sedeRepository.findById(id).get();
+        for (Menbro menbro : sede.getMenbro()) {
+            menbroRepository.deleteById(menbro.getId());
+        }
+        for (Atividade atividade : sede.getAtividades()) {
+            atividadeRepository.deleteById(atividade.getId());
+        }
         sedeRepository.deleteById(id);
         return "redirect:/";
     }
